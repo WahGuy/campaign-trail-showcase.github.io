@@ -5,6 +5,15 @@ function ctsAchievement(achievement, difficultyChecker = true){
 	}
 }
 
+const style_overwrite = document.createElement("style");
+style_overwrite.innerHTML =
+`#campaign_sign {
+  background-color:rgb(197, 67, 67);
+  border-color:rgb(206, 126, 126);
+}`
+;
+document.head.appendChild(style_overwrite);
+
 campaignTrail_temp.questions_json = [
     {
         "model": "campaign_trail.question",
@@ -6457,17 +6466,6 @@ campaignTrail_temp.answer_score_issue_json = [
         }
     },
     {
-        "model": "campaign_trail.answer_score_state_json",
-        "pk": 99999,
-        "fields": {
-            "answer": 9999,
-            "state": 54,
-            "candidate": 20,
-            "affected_candidate": 20,
-            "global_multiplier": -0.01
-        }
-    },
-    {
         "model": "campaign_trail.answer_score_issue",
         "pk": 800263,
         "fields": {
@@ -10301,7 +10299,7 @@ campaignTrail_temp.player_visits = [];
 campaignTrail_temp.answer_feedback_flg = 1;
 campaignTrail_temp.game_start_logging_id = '4472388';
 
-cyoAdventure = function (a) { 
+cyoAdventure = function (a) {
   ans = campaignTrail_temp.player_answers[campaignTrail_temp.player_answers.length - 1]
 
   if(ans == 8004){
@@ -10309,7 +10307,7 @@ cyoAdventure = function (a) {
     campaignTrail_temp.candidate_json[0]["fields"].first_name = "Benjamin";
     campaignTrail_temp.candidate_json[0]["fields"].last_name = "Wade";
     campaignTrail_temp.candidate_json[0]["fields"].image_url = "https://itsastronomical.com/assets/1868/wade.png";
-    campaignTrail_temp.candidate_json[0]["fields"].electoral_victory_message = "<h3><q>I Will Never Make Any Compromise With Any Such Men.</q></h3><p>The trumpet of freedom sounds again, as President Wade is re-elected. Easily seizing the nomination as the incumbent, the President withstood the harsh blows of Governor Seymour and his ravenous ilk who sought to tear down Lincoln’s realm. He stood firm when the Klan tried to seize the South via violence, crushing them with the sheer weight of federal power. He stood firm when Seymour called him a ravening Marxist. He stood firm when Seymour called him a tool of black interests. Against all these, Wade stood firm, and the nation, with justice and equanimity in its heart, stood with him.</p><p>Now, President Wade and Vice President Fenton seize the White House, where they shall rebuild the South and bring that noble dream of equality to all American men. It is as if we live in a beautiful dream, where the vision that <q>All Men are Created Equal</q> has finally come true. You, of course General, will likely have a role to play in this, perhaps as Wade’s coming Secretary of War. Somebody will have to crush the Klan once and for all for him. But for now, we rejoice, rejoice and breathe in the battle cry of freedom! It is truly most wonderful that this beautiful vision has become true…</q></p>";
+    campaignTrail_temp.candidate_json[0]["fields"].electoral_victory_message = "<q> I Will Never Make Any Compromise With Any Such Men.</q><p>The trumpet of freedom sounds again, as President Wade is re-elected. Easily seizing the nomination as the incumbent, the President withstood the harsh blows of Governor Seymour and his ravenous ilk who sought to tear down Lincoln’s realm. He stood firm when the Klan tried to seize the South via violence, crushing them with the sheer weight of federal power. He stood firm when Seymour called him a ravening Marxist. He stood firm when Seymour called him a tool of black interests. Against all these, Wade stood firm, and the nation, with justice and equanimity in its heart, stood with him.</p><p>Now, President Wade and Vice President Fenton seize the White House, where they shall rebuild the South and bring that noble dream of equality to all American men. It is as if we live in a beautiful dream, where the vision that <q>All Men are Created Equal</q> has finally come true. You, of course General, will likely have a role to play in this, perhaps as Wade’s coming Secretary of War. Somebody will have to crush the Klan once and for all for him. But for now, we rejoice, rejoice and breathe in the battle cry of freedom! It is truly most wonderful that this beautiful vision has become true…</q>";
     campaignTrail_temp.candidate_json[0]["fields"].electoral_loss_message = "<h3>That I Might Illustrate In My Death the Principles of My Long Life</h3><p>As the incumbent, Senator Wade easily seized the nomination at the convention, standing alongside Governor Fenton of New York. Alas, however, his fortunes were not to continue. As the Klan began its rampage across the South, President Wade swiftly pushed to send federal troops to the South, fighting the Klan at gunpoint. Much blood was spilled as the Klan was swiftly hunted down. However, the North was far less kind to the Senator. Business and White Supremacists formed an axis against the President, frightened by his radicalism on race and on monetary issues.</p><p>Such a nexus of capital and racialized anger could not be beaten by the President, as Governor Seymour assailed Wade’s expansion of federal power at every turn. In truth, perhaps the President was too much, too fast. He ultimately faltered in the wake of Seymour’s assault, and the rebel party once again controls the White House. Scattered to the winds, the Republicans already dismiss their Radical element, and are looking for a new champion as Seymour lets the South run wild. Perhaps, in four years, you shall be the one to take up that mantle. Let us hope our nation does not fall into the grips of rebellion yet again in that time.</p>";
     campaignTrail_temp.candidate_json[0]["fields"].no_electoral_majority_message = "<h3>You tie?!</h3><p>Template</p>";
     campaignTrail_temp.multiple_endings=false
@@ -10327,7 +10325,7 @@ var changeGameDisp = (hide) => {
     disp = "none";
   }
   Array.from(gameWindow.children).forEach(f=>{
-      if(!f.classList.contains("game_header") && (f.id != "main_content_area" || !$("#campaign_sign")[0])) 
+      if(!f.classList.contains("game_header") && (f.id != "main_content_area" || !$("#campaign_sign")[0]))
           f.style.display = disp
   });
 };
@@ -10344,7 +10342,7 @@ e.vpSwitcher = () => {
       <div id="running_mate_form">
           <form name="running mate">
               <p></p>
-              <h3>Please select your running mate:</h3> 
+              <h3>Please select your running mate:</h3>
               <select name="running_mate_id" id="running_mate_id">
                   ${running_mate_options}
               </select>
@@ -10470,13 +10468,13 @@ console.log(campaignTrail_temp.questions_json[3])
         "likelihood": 1
       }
     }
-var button1 = document.getElementById('view_electoral_map');	
+var button1 = document.getElementById('view_electoral_map');
 
 button1.click();
 
 
 setTimeout(function(){
-var button2 = document.getElementById('resume_questions_button');	
+var button2 = document.getElementById('resume_questions_button');
       button2.click();
 }, 50);
 console.log(campaignTrail_temp.questions_json[7])
@@ -10529,13 +10527,13 @@ if(e.running_mate_last_name==="Wilson"){
           "likelihood": 1
         }
       }
-  var button1 = document.getElementById('view_electoral_map');	
-  
+  var button1 = document.getElementById('view_electoral_map');
+
   button1.click();
-  
-  
+
+
   setTimeout(function(){
-  var button2 = document.getElementById('resume_questions_button');	
+  var button2 = document.getElementById('resume_questions_button');
         button2.click();
   }, 50);
   console.log(campaignTrail_temp.questions_json[7])
@@ -10588,13 +10586,13 @@ console.log(campaignTrail_temp.questions_json[3])
         "likelihood": 1
       }
     }
-var button1 = document.getElementById('view_electoral_map');	
+var button1 = document.getElementById('view_electoral_map');
 
 button1.click();
 
 
 setTimeout(function(){
-var button2 = document.getElementById('resume_questions_button');	
+var button2 = document.getElementById('resume_questions_button');
       button2.click();
 }, 50);
 console.log(campaignTrail_temp.questions_json[7])
@@ -10637,4 +10635,3 @@ return "<h3>What?!</h3><p>This is an error page. Contact ItsAstronomical and exp
 campaignTrail_temp.multiple_endings=true
 
 campaignTrail_temp.cyoa = true
-
